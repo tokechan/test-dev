@@ -1,6 +1,7 @@
 import { j } from "./jstack"
+import { clerkWebhookRouter } from "./routers/clerk-webhook-router"
 import { postRouter } from "./routers/post-router"
-
+import { pingRouter } from "./routers/ping-router"
 /**
  * This is your base API.
  * Here, you can handle errors, not-found responses, cors and more.
@@ -19,6 +20,8 @@ const api = j
  */
 const appRouter = j.mergeRouters(api, {
   post: postRouter,
+  systems: pingRouter,
+  webhook: clerkWebhookRouter,
 })
 
 export type AppRouter = typeof appRouter

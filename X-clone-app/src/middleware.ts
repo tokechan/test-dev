@@ -1,10 +1,15 @@
 import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
 
 const isProtectedRoute = createRouteMatcher(["/"]);
+const isWebhookRoute = createRouteMatcher(["/api/webhook/clerk(.*)"]);
+const isPingRoute = createRouteMatcher(["/api/systems/ping(.*)"]);
 
 export default clerkMiddleware(async (auth, req) => {
-    if (isProtectedRoute(req)) {
-        await auth.protect();
+    if (isWebhookRoute(req) || isPingRoute(req)) {
+        return;
+    }
+     if (isProtectedRoute(req))  {
+      await auth.protect();
     }
 });
 
