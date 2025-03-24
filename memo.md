@@ -52,3 +52,7 @@ Neon
 Shadcn/ui
 Ngrok
 
+
+# JStackでAPIを開発する
+JStackではsrc/serverにAPIに関するファイルを作成する
+
