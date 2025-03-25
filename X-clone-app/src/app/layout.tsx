@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { ClerkProvider, SignedIn, SignedOut } from "@clerk/nextjs";
 import "./globals.css";
-import SideMenu from "@/components/SideMenu";
+import { SideMenu } from "@/components/SideMenu";
 import { Providers } from "./components/providers";
 
 export const metadata: Metadata = {
